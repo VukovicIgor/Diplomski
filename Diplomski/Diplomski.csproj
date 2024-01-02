@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EBB544A4-940C-4715-85B5-7D5EC35194C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Diplomski</RootNamespace>
+    <AssemblyName>Diplomski</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BazaDiplomskog.cs">
+      <DependentUpon>BazaDiplomskog.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BazaDiplomskog.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BazaDiplomskog.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="cls\Covek.cs" />
+    <Compile Include="cls\MessageBoxManager.cs" />
+    <Compile Include="cls\Migracije.cs" />
+    <Compile Include="frm\frmAdministracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmAdministracija.Designer.cs">
+      <DependentUpon>frmAdministracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmStatistika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmStatistika.Designer.cs">
+      <DependentUpon>frmStatistika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmUpit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmUpit.Designer.cs">
+      <DependentUpon>frmUpit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmObjekat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmObjekat.Designer.cs">
+      <DependentUpon>frmObjekat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmODomacinstvu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmODomacinstvu.Designer.cs">
+      <DependentUpon>frmODomacinstvu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmOsoba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmOsoba.Designer.cs">
+      <DependentUpon>frmOsoba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmPocetna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmPocetna.Designer.cs">
+      <DependentUpon>frmPocetna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmPrijava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmPrijava.Designer.cs">
+      <DependentUpon>frmPrijava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmPrikaz.Designer.cs">
+      <DependentUpon>frmPrikaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmUnosPopisivaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmUnosPopisivaca.Designer.cs">
+      <DependentUpon>frmUnosPopisivaca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmBracniStatusFertilitet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmBracniStatusFertilitet.Designer.cs">
+      <DependentUpon>frmBracniStatusFertilitet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmEkonomskaAktivnost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmEkonomskaAktivnost.Designer.cs">
+      <DependentUpon>frmEkonomskaAktivnost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmEtnokultura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmEtnokultura.Designer.cs">
+      <DependentUpon>frmEtnokultura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmFunkcionisanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmFunkcionisanje.Designer.cs">
+      <DependentUpon>frmFunkcionisanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmMigracije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmMigracije.Designer.cs">
+      <DependentUpon>frmMigracije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmObrazovanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmObrazovanje.Designer.cs">
+      <DependentUpon>frmObrazovanje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmOZgradi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmOZgradi.Designer.cs">
+      <DependentUpon>frmOZgradi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmPitanja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmPitanja.Designer.cs">
+      <DependentUpon>frmPitanja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmPrevoz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmPrevoz.Designer.cs">
+      <DependentUpon>frmPrevoz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm\pitanja\frmOStanu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\pitanja\frmOStanu.Designer.cs">
+      <DependentUpon>frmOStanu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frm\frmAdministracija.resx">
+      <DependentUpon>frmAdministracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmStatistika.resx">
+      <DependentUpon>frmStatistika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmUpit.resx">
+      <DependentUpon>frmUpit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmObjekat.resx">
+      <DependentUpon>frmObjekat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmODomacinstvu.resx">
+      <DependentUpon>frmODomacinstvu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmOsoba.resx">
+      <DependentUpon>frmOsoba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmPocetna.resx">
+      <DependentUpon>frmPocetna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmPrijava.resx">
+      <DependentUpon>frmPrijava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmPrikaz.resx">
+      <DependentUpon>frmPrikaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmUnosPopisivaca.resx">
+      <DependentUpon>frmUnosPopisivaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmBracniStatusFertilitet.resx">
+      <DependentUpon>frmBracniStatusFertilitet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmEkonomskaAktivnost.resx">
+      <DependentUpon>frmEkonomskaAktivnost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmEtnokultura.resx">
+      <DependentUpon>frmEtnokultura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmFunkcionisanje.resx">
+      <DependentUpon>frmFunkcionisanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmMigracije.resx">
+      <DependentUpon>frmMigracije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmObrazovanje.resx">
+      <DependentUpon>frmObrazovanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmOZgradi.resx">
+      <DependentUpon>frmOZgradi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmPitanja.resx">
+      <DependentUpon>frmPitanja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmPrevoz.resx">
+      <DependentUpon>frmPrevoz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\pitanja\frmOStanu.resx">
+      <DependentUpon>frmOStanu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="BazaDiplomskog.xsc">
+      <DependentUpon>BazaDiplomskog.xsd</DependentUpon>
+    </None>
+    <None Include="BazaDiplomskog.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BazaDiplomskog.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BazaDiplomskog.xss">
+      <DependentUpon>BazaDiplomskog.xsd</DependentUpon>
+    </None>
+    <None Include="pitanja.pdf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
+    <Content Include="TextFile2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

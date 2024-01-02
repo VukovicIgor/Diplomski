@@ -1,0 +1,3 @@
+﻿
+	Prikaz svih popisivaca u gornjem meniju (supervizor)
+	Dodati prikaz za jednog gradjanina
