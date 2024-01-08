@@ -259,6 +259,7 @@
     <None Include="BazaDiplomskog.xss">
       <DependentUpon>BazaDiplomskog.xsd</DependentUpon>
     </None>
+    <None Include="IgorVukovicNRT3619_ZavrsniRad.docx" />
     <None Include="pitanja.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
