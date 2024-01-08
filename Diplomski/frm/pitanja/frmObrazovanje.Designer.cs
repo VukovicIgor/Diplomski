@@ -189,7 +189,6 @@
             // lb16_1Drzava
             // 
             this.lb16_1Drzava.AutoSize = true;
-            this.lb16_1Drzava.Enabled = false;
             this.lb16_1Drzava.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb16_1Drzava.Location = new System.Drawing.Point(667, 320);
             this.lb16_1Drzava.Name = "lb16_1Drzava";
@@ -222,7 +221,6 @@
             // lb16_1Naselje
             // 
             this.lb16_1Naselje.AutoSize = true;
-            this.lb16_1Naselje.Enabled = false;
             this.lb16_1Naselje.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb16_1Naselje.Location = new System.Drawing.Point(649, 150);
             this.lb16_1Naselje.Name = "lb16_1Naselje";
@@ -243,7 +241,6 @@
             // lb16_1opstina
             // 
             this.lb16_1opstina.AutoSize = true;
-            this.lb16_1opstina.Enabled = false;
             this.lb16_1opstina.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb16_1opstina.Location = new System.Drawing.Point(666, 111);
             this.lb16_1opstina.Name = "lb16_1opstina";
@@ -318,7 +315,6 @@
             // lb16_1Ulica
             // 
             this.lb16_1Ulica.AutoSize = true;
-            this.lb16_1Ulica.Enabled = false;
             this.lb16_1Ulica.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb16_1Ulica.Location = new System.Drawing.Point(575, 256);
             this.lb16_1Ulica.Name = "lb16_1Ulica";
@@ -338,7 +334,6 @@
             // lb16_1broj
             // 
             this.lb16_1broj.AutoSize = true;
-            this.lb16_1broj.Enabled = false;
             this.lb16_1broj.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb16_1broj.Location = new System.Drawing.Point(720, 256);
             this.lb16_1broj.Name = "lb16_1broj";
@@ -398,7 +393,6 @@
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label11.Enabled = false;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(882, 332);
             this.label11.Name = "label11";

@@ -20,7 +20,7 @@ namespace Diplomski.frm.pitanja
         BazaDiplomskogTableAdapters.DRZAVETableAdapter drzaveAdapter = new BazaDiplomskogTableAdapters.DRZAVETableAdapter();
         BazaDiplomskogTableAdapters.tmp_EKONOMSKA_AKTIVNOSTTableAdapter tmp_ekonomAdapter = new BazaDiplomskogTableAdapters.tmp_EKONOMSKA_AKTIVNOSTTableAdapter();
         BazaDiplomskogTableAdapters.QueriesTableAdapter brisanje = new BazaDiplomskogTableAdapters.QueriesTableAdapter();
-        int brojac = 0;
+        //int brojac = 0;
         string odgovor26 = "";
         public frmEkonomskaAktivnost(int id, int id_popisivaca)
         {
@@ -282,7 +282,6 @@ namespace Diplomski.frm.pitanja
                         case "grana1_1":
                             if (e.Node.Checked)
                             {
-                                brojac += 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("27") || c.Name.Contains("29") || c.Name.Contains("32"))
@@ -293,7 +292,6 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("27") || c.Name.Contains("29") || c.Name.Contains("32"))
@@ -306,7 +304,6 @@ namespace Diplomski.frm.pitanja
                         case "grana1_2":
                             if (e.Node.Checked)
                             {
-                                brojac += 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("32"))
@@ -317,7 +314,6 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("32"))
@@ -330,7 +326,6 @@ namespace Diplomski.frm.pitanja
                         case "grana1_3":
                             if (e.Node.Checked)
                             {
-                                brojac += 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("27") || c.Name.Contains("28") || c.Name.Contains("29") || c.Name.Contains("30") ||  c.Name.Contains("32"))
@@ -341,20 +336,19 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("27") || c.Name.Contains("28") || c.Name.Contains("29") || c.Name.Contains("30") || c.Name.Contains("32"))
                                     {
                                         c.Enabled = false;
                                     }
+
                                 }
                             }
                             break;
                         case "grana1_4":
                             if (e.Node.Checked)
                             {
-                                brojac += 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("30") || c.Name.Contains("32"))
@@ -365,7 +359,6 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("30") || c.Name.Contains("32"))
@@ -378,7 +371,6 @@ namespace Diplomski.frm.pitanja
                         case "grana2":
                             if (e.Node.Checked)
                             {
-                                brojac += 1;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("27") || c.Name.Contains("28") || c.Name.Contains("29") || c.Name.Contains("30"))
@@ -389,10 +381,9 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 1;
                                 foreach (Control c in Controls)
                                 {
-                                    if (c.Name.Contains("27") || c.Name.Contains("30"))
+                                    if (c.Name.Contains("27") || c.Name.Contains("28") || c.Name.Contains("29") || c.Name.Contains("30"))
                                     {
                                         c.Enabled = false;
                                     }
@@ -402,7 +393,6 @@ namespace Diplomski.frm.pitanja
                         case "grana3_1":
                             if (e.Node.Checked)
                             {
-                                brojac += 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("30"))
@@ -413,7 +403,6 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("30"))
@@ -426,7 +415,6 @@ namespace Diplomski.frm.pitanja
                         case "grana3_2":
                             if (e.Node.Checked)
                             {
-                                brojac += 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("28") || c.Name.Contains("30"))
@@ -437,7 +425,6 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 2;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("28") || c.Name.Contains("30"))
@@ -450,7 +437,6 @@ namespace Diplomski.frm.pitanja
                         case "grana4":
                             if (e.Node.Checked)
                             {
-                                brojac += 1;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("30"))
@@ -463,7 +449,6 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 1;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("30"))
@@ -478,7 +463,6 @@ namespace Diplomski.frm.pitanja
                         case "grana5":
                             if (e.Node.Checked)
                             {
-                                brojac += 1;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("30"))
@@ -489,7 +473,6 @@ namespace Diplomski.frm.pitanja
                             }
                             else
                             {
-                                brojac -= 1;
                                 foreach (Control c in Controls)
                                 {
                                     if (c.Name.Contains("29") || c.Name.Contains("30"))
@@ -570,87 +553,86 @@ namespace Diplomski.frm.pitanja
         }
         private void btnDalje_Click(object sender, EventArgs e)
         {
-            if (lb19.Enabled && (!cb19Da.Checked && !cb19Ne.Checked))
-                MessageBox.Show("Nedostaje odgovor za pitanje 19!!!");
-            else if (lb20.Enabled && !cb20Da.Checked && !cb20Ne.Checked)
-                MessageBox.Show("Nedostaje odgovor za pitanje 20!!!");
-            else if (lb21.Enabled && (!cb21Da.Checked && !cb21Ne.Checked))
-                MessageBox.Show("Nedostaje odgovor za pitanje 21!!!");
-            else if (lb22.Enabled && (!cb22Da.Checked && !cb22Ne.Checked))
-                MessageBox.Show("Nedostaje odgovor za pitanje 22!!!");
-            else if (lb23.Enabled && clb23.CheckedItems.Count == 0)
-                MessageBox.Show("Nedostaje odgovor za pitanje 23!!!");
-            else if (lb24.Enabled && txt24.Text == string.Empty)
-                MessageBox.Show("Nedostaje odgovor za pitanje 24!!!");
-            else if (lb25.Enabled && clb25.CheckedItems.Count == 0)
-                MessageBox.Show("Nedostaje odgovor za pitanje 25!!!");
-            else if (lb26.Enabled && brojac <= 0)
-                MessageBox.Show("Nedostaje odgovor za pitanje 26!!!");
-            else if (lb27.Enabled && txt27.Text == string.Empty)
-                MessageBox.Show("Nedostaje odgovor za pitanje 27!!!");
-            else if (lb28.Enabled && (txt28Broj.Text == string.Empty || txt28Ulica.Text == string.Empty))
-                MessageBox.Show("Nedostaje odgovor za pitanje 28!!!");
-            else if (lb29.Enabled && txt29.Text == string.Empty)
-                MessageBox.Show("Nedostaje odgovor za pitanje 29!!!");
-            else if (lb30.Enabled && (!cb30Jednom.Checked && !cb30Svakidan.Checked))
-                MessageBox.Show("Nedostaje odgovor za pitanje 30!!!");
-            else
+            //if (lb19.Enabled && (!cb19Da.Checked && !cb19Ne.Checked))
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 19!!!");
+            //else if (lb20.Enabled && !cb20Da.Checked && !cb20Ne.Checked)
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 20!!!");
+            //else if (lb21.Enabled && (!cb21Da.Checked && !cb21Ne.Checked))
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 21!!!");
+            //else if (lb22.Enabled && (!cb22Da.Checked && !cb22Ne.Checked))
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 22!!!");
+            //else if (lb23.Enabled && clb23.CheckedItems.Count == 0)
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 23!!!");
+            //else if (lb24.Enabled && txt24.Text == string.Empty)
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 24!!!");
+            //else if (lb25.Enabled && clb25.CheckedItems.Count == 0)
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 25!!!");
+            //else if (lb26.Enabled && brojac <= 0)
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 26!!!");
+            //else if (lb27.Enabled && txt27.Text == string.Empty)
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 27!!!");
+            //else if (lb28.Enabled && (txt28Broj.Text == string.Empty || txt28Ulica.Text == string.Empty))
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 28!!!");
+            //else if (lb29.Enabled && txt29.Text == string.Empty)
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 29!!!");
+            //else if (lb30.Enabled && (!cb30Jednom.Checked && !cb30Svakidan.Checked))
+            //    MessageBox.Show("Nedostaje odgovor za pitanje 30!!!");
+            //else
+            //{
+            DialogResult pitanje = MessageBox.Show("Da li ste sigurni?", "Unos", MessageBoxButtons.YesNo);
+            if (pitanje == DialogResult.Yes)
             {
-                DialogResult pitanje = MessageBox.Show("Da li ste sigurni?", "Unos", MessageBoxButtons.YesNo);
-                if (pitanje == DialogResult.Yes)
+                BazaDiplomskog.tmp_EKONOMSKA_AKTIVNOSTRow red = bd.tmp_EKONOMSKA_AKTIVNOST.Newtmp_EKONOMSKA_AKTIVNOSTRow();
+                red.id_popisivac = id_popisivaca;
+                red.id_osobe = id;
+                if (cb19Da.Checked)
+                    red.pitanje19 = "Da";
+                else
+                    red.pitanje19 = "Ne";
+                if (cb20Da.Checked)
+                    red.pitanje20 = "Da";
+                else if (cb20Ne.Checked)
+                    red.pitanje20 = "Ne";
+                if (cb21Da.Checked)
+                    red.pitanje21 = "Da";
+                else if (cb21Ne.Checked)
+                    red.pitanje21 = "Ne";
+                if (cb22Da.Checked)
+                    red.pitanje22 = "Da";
+                else if (cb22Ne.Checked)
+                    red.pitanje22 = "Ne";
+                if (clb23.Enabled)
+                    red.pitanje23 = clb23.CheckedItems[0].ToString();
+                if (txt24.Enabled)
+                    red.pitanje24 = txt24.Text;
+                if (clb25.Enabled)
+                    red.pitanje25 = clb25.CheckedItems[0].ToString();
+                if (cmb26Drzava.Enabled)
+                    odgovor26 += ":" + cmb26Drzava.Text;
+                if (tv26.Enabled)
+                    red.pitanje26 = odgovor26;
+                if (txt27.Enabled)
+                    red.pitanje27 = txt27.Text;
+                if (lb28.Enabled)
                 {
-                    BazaDiplomskog.tmp_EKONOMSKA_AKTIVNOSTRow red = bd.tmp_EKONOMSKA_AKTIVNOST.Newtmp_EKONOMSKA_AKTIVNOSTRow();
-                    red.id_popisivac = id_popisivaca;
-                    red.id_osobe = id;
-                    if (cb19Da.Checked)
-                        red.pitanje19 = "Da";
-                    else
-                        red.pitanje19 = "Ne";
-                    if (cb20Da.Checked)
-                        red.pitanje20 = "Da";
-                    else if (cb20Ne.Checked)
-                        red.pitanje20 = "Ne";
-                    if (cb21Da.Checked)
-                        red.pitanje21 = "Da";
-                    else if (cb21Ne.Checked)
-                        red.pitanje21 = "Ne";
-                    if (cb22Da.Checked)
-                        red.pitanje22 = "Da";
-                    else if (cb22Ne.Checked)
-                        red.pitanje22 = "Ne";
-                    if (clb23.Enabled)
-                        red.pitanje23 = clb23.CheckedItems[0].ToString();
-                    if (txt24.Enabled)
-                        red.pitanje24 = txt24.Text;
-                    if (clb25.Enabled)
-                        red.pitanje25 = clb25.CheckedItems[0].ToString();
-                    if (cmb26Drzava.Enabled)
-                        odgovor26 += ":" + cmb26Drzava.Text;
-                    if (tv26.Enabled)
-                        red.pitanje26 = odgovor26;
-                    if (txt27.Enabled)
-                        red.pitanje27 = txt27.Text;
-                    if (lb28.Enabled)
-                    {
-                        red.pitanje28_opstina = cmb28Opstina.Text;
-                        red.pitanje28_naselje = cmb28Naselje.Text;
-                        red.pitanje28_ulica = txt28Ulica.Text;
-                        red.pitanje28_broj = txt28Broj.Text;
-                    }
-                    if (lb29.Enabled)
-                        red.pitanje29 = txt29.Text;
-                    if (cb30Jednom.Checked)
-                        red.pitanje30 = cb30Jednom.Text;
-                    if (cb30Svakidan.Checked)
-                        red.pitanje30 = cb30Svakidan.Text;
-                    bd.tmp_EKONOMSKA_AKTIVNOST.Addtmp_EKONOMSKA_AKTIVNOSTRow(red);
-                    tmp_ekonomAdapter.Update(bd.tmp_EKONOMSKA_AKTIVNOST);
-                    MessageBoxManager.Unregister();
-                    frmPrevoz forma = new frmPrevoz(id, id_popisivaca);
-                    this.Hide();
-                    forma.ShowDialog();
-                    this.Close();
+                    red.pitanje28_opstina = cmb28Opstina.Text;
+                    red.pitanje28_naselje = cmb28Naselje.Text;
+                    red.pitanje28_ulica = txt28Ulica.Text;
+                    red.pitanje28_broj = txt28Broj.Text;
                 }
+                if (lb29.Enabled)
+                    red.pitanje29 = txt29.Text;
+                if (cb30Jednom.Checked)
+                    red.pitanje30 = cb30Jednom.Text;
+                if (cb30Svakidan.Checked)
+                    red.pitanje30 = cb30Svakidan.Text;
+                bd.tmp_EKONOMSKA_AKTIVNOST.Addtmp_EKONOMSKA_AKTIVNOSTRow(red);
+                tmp_ekonomAdapter.Update(bd.tmp_EKONOMSKA_AKTIVNOST);
+                MessageBoxManager.Unregister();
+                frmPrevoz forma = new frmPrevoz(id, id_popisivaca);
+                this.Hide();
+                forma.ShowDialog();
+                this.Close();
             }
         }
 

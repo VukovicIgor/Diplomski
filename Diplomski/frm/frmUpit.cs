@@ -1529,7 +1529,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new {a=op.sifra_opstine, b=ob.naselje } equals new {a=n.sifra_opstine, b=n.naziv }
                         where n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1539,7 +1540,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) < 31 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1549,7 +1551,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) > 30 && int.Parse(os.pitanje9) < 41 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1559,7 +1562,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) > 40 && int.Parse(os.pitanje9) < 51 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1569,7 +1573,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) > 50 && int.Parse(os.pitanje9) < 61 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1579,7 +1584,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) > 60 && int.Parse(os.pitanje9) < 81 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1589,7 +1595,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) > 80 && int.Parse(os.pitanje9) < 101 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1599,7 +1606,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) > 100 && int.Parse(os.pitanje9) < 121 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1609,7 +1617,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) > 120 && int.Parse(os.pitanje9) < 151 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1619,7 +1628,8 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                         where int.Parse(os.pitanje9) > 150 && n.tip_naselja == tip
                         select os.pitanje9
                     ).Count();
@@ -1652,7 +1662,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1664,7 +1674,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) < 31 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1676,7 +1686,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 30 && int.Parse(os.pitanje9) < 41 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1688,7 +1698,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 40 && int.Parse(os.pitanje9) < 51 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1700,7 +1710,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 50 && int.Parse(os.pitanje9) < 61 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1712,7 +1722,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 60 && int.Parse(os.pitanje9) < 81 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1724,7 +1734,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 80 && int.Parse(os.pitanje9) < 101 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1736,7 +1746,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 100 && int.Parse(os.pitanje9) < 121 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1745,10 +1755,10 @@ namespace Diplomski.frm
 
                                 tmp =
                                 (
-                                    from os in bd.O_STANU
+                        from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 120 && int.Parse(os.pitanje9) < 151 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1760,7 +1770,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 150 && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1776,7 +1786,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1788,7 +1798,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) < 31 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1800,7 +1810,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 30 && int.Parse(os.pitanje9) < 41 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1812,7 +1822,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 40 && int.Parse(os.pitanje9) < 51 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1824,7 +1834,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 50 && int.Parse(os.pitanje9) < 61 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1836,7 +1846,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 60 && int.Parse(os.pitanje9) < 81 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1848,7 +1858,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 80 && int.Parse(os.pitanje9) < 101 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1860,7 +1870,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 100 && int.Parse(os.pitanje9) < 121 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1872,7 +1882,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 120 && int.Parse(os.pitanje9) < 151 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1884,7 +1894,7 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     where int.Parse(os.pitanje9) > 150 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
                                     select os.pitanje9
@@ -1931,6 +1941,7 @@ namespace Diplomski.frm
                     tmp =
                     (
                         from os in bd.O_STANU
+                        where !os.pitanje14_5.Contains("Daljinsko")
                         select os.id_objekta
                     ).Count();
                     lista.Add(tmp.ToString());
@@ -1940,7 +1951,7 @@ namespace Diplomski.frm
                         tmp =
                         (
                             from os in bd.O_STANU
-                            where os.pitanje15.Contains(grejanje)
+                            where os.pitanje15.Contains(grejanje) && !os.pitanje14_5.Contains("Daljinsko")
                             select os.id_objekta
                         ).Count();
                         lista.Add(tmp.ToString());
@@ -1952,8 +1963,9 @@ namespace Diplomski.frm
                     (
                         from os in bd.O_STANU
                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                        join n in bd.NASELJE on ob.naselje equals n.naziv
-                        where n.tip_naselja == tip
+                        join op in bd.OPSTINA on ob.opstina equals op.naziv
+                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
+                        where n.tip_naselja == tip && !os.pitanje14_5.Contains("Daljinsko")
                         select os.id_objekta
                     ).Count();
                     lista.Add(tmp.ToString());
@@ -1963,8 +1975,9 @@ namespace Diplomski.frm
                         (
                             from os in bd.O_STANU
                             join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
-                            join n in bd.NASELJE on ob.naselje equals n.naziv
-                            where os.pitanje15.Contains(grejanje) && n.tip_naselja == tip
+                            join op in bd.OPSTINA on ob.opstina equals op.naziv
+                            join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
+                            where os.pitanje15.Contains(grejanje) && n.tip_naselja == tip && !os.pitanje14_5.Contains("Daljinsko")
                             select os.id_objekta
                         ).Count();
                         lista.Add(tmp.ToString());
@@ -1994,10 +2007,10 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     join nstj2 in bd.NSTJ2 on uo.sifra_nstj2 equals nstj2.sifra_oblasti
-                                    where nstj2.naziv == red["naziv"].ToString()
+                                    where nstj2.naziv == red["naziv"].ToString() && !os.pitanje14_5.Contains("Daljinsko")
                                     select os.id_objekta 
                                 ).Count();
                                 lista.Add(tmp.ToString());
@@ -2009,10 +2022,10 @@ namespace Diplomski.frm
                                         from os in bd.O_STANU
                                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                         join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                         join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                         join nstj2 in bd.NSTJ2 on uo.sifra_nstj2 equals nstj2.sifra_oblasti
-                                        where os.pitanje15.Contains(grejanje) && nstj2.naziv == red["naziv"].ToString()
+                                        where os.pitanje15.Contains(grejanje) && nstj2.naziv == red["naziv"].ToString() && !os.pitanje14_5.Contains("Daljinsko")
                                         select os.id_objekta
                                     ).Count();
                                     lista.Add(tmp.ToString());
@@ -2030,10 +2043,10 @@ namespace Diplomski.frm
                                     from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                     join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                     join nstj2 in bd.NSTJ2 on uo.sifra_nstj2 equals nstj2.sifra_oblasti
-                                    where n.tip_naselja == tip && nstj2.naziv == red["naziv"].ToString()
+                                    where n.tip_naselja == tip && nstj2.naziv == red["naziv"].ToString() && !os.pitanje14_5.Contains("Daljinsko")
                                     select os.id_objekta
                                 ).Count();
                                 lista.Add(tmp.ToString());
@@ -2044,10 +2057,10 @@ namespace Diplomski.frm
                                         from os in bd.O_STANU
                                         join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                         join op in bd.OPSTINA on ob.opstina equals op.naziv
-                                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                                        join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
                                         join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                                         join nstj2 in bd.NSTJ2 on uo.sifra_nstj2 equals nstj2.sifra_oblasti
-                                        where os.pitanje15 == grejanje && n.tip_naselja == tip && nstj2.naziv == red["naziv"].ToString()
+                                        where os.pitanje15 == grejanje && n.tip_naselja == tip && nstj2.naziv == red["naziv"].ToString() && !os.pitanje14_5.Contains("Daljinsko")
                                         select os.id_objekta
                                     ).Count();
                                     lista.Add(tmp.ToString());

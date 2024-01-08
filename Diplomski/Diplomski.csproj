@@ -276,6 +276,8 @@
   <ItemGroup>
     <Content Include="TextFile1.txt" />
     <Content Include="TextFile2.txt" />
+    <Content Include="TextFile3.txt" />
+    <Content Include="TextFile4.txt" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxAcroPDFLib">

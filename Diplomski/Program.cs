@@ -18,7 +18,7 @@ namespace Diplomski
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmObrazovanje(1,1));
+            Application.Run(new frmObjekat(1,1));
         }
     }
 }

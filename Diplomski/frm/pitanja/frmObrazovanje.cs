@@ -35,128 +35,91 @@ namespace Diplomski.frm.pitanja
             drzavaAdapter.Fill(bd.DRZAVE);
             brisanje.brisanje_tmp_obrazovanje(id_popisivaca);
         }
-
         private void clb15_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            Uncheck(clb15,e);
-            if ((clb15.SelectedIndex==0 || clb15.SelectedIndex == 1) && clb16.SelectedIndex == 0)
+            UncheckAll(clb16);
+            Uncheck(clb15, e);
+            if (clb15.SelectedIndex == 0 || clb15.SelectedIndex == 1)
             {
                 lb17.Enabled = true;
-                cb16_1Drzava.Enabled = false;
-                cb16_1Srbija.Enabled = false;
-                lb16_1.Enabled = false;
             }
             else
+            {
                 lb17.Enabled = false;
-        }
-
-        private void Uncheck(CheckedListBox clb, ItemCheckEventArgs e)
-        {
-            for (int i = 0; i < clb.Items.Count; ++i)
-                if (i != e.Index) clb.SetItemChecked(i, false);
-        }
-        private void UncheckAll(CheckedListBox clb)
-        {
-            clb.ClearSelected();
-            for (int i = 0; i < clb.Items.Count; ++i)
-                clb.SetItemChecked(i, false);
-            clb.Enabled = false;
+            }
         }
 
         private void clb16_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             Uncheck(clb16, e);
-            if ((clb15.SelectedIndex == 0 || clb15.SelectedIndex == 1) && clb16.SelectedIndex == 0)
+            if(clb16.SelectedIndex == 0)
             {
                 lb17.Enabled = true;
-                cb16_1Drzava.Enabled = false;
-                cb16_1Srbija.Enabled = false;
-                lb16_1.Enabled = false;
             }
-            else if (clb16.SelectedIndex == 0)
+            if (!clb16.GetItemChecked(e.Index))
             {
-                lb18.Enabled = true;
-            }
-            else if (!clb16.GetItemChecked(e.Index))
-            {
-                lb17.Enabled = false;
                 lb16_1.Enabled = true;
             }
             else
             {
-                lb17.Enabled = false;
                 lb16_1.Enabled = false;
-                lb18.Enabled = false;
             }
-                
         }
 
         private void lb16_1_EnabledChanged(object sender, EventArgs e)
         {
-            if (lb16_1.Enabled)
+            if(lb16_1.Enabled)
             {
-                foreach(Control c in Controls)
-                {
-                    if (c is CheckBox && c.Name.Contains("_1"))
-                    {
-                        c.Enabled = true;
-                    }
-                }
+                cb16_1Srbija.Enabled = true;
+                cb16_1Drzava.Enabled = true;
             }
             else
             {
-                cb16_1Drzava.Checked = false;
-                cb16_1Srbija.Checked = false;
-                foreach (Control c in Controls)
-                {
-                    if (c is CheckBox && c.Name.Contains("_1"))
-                    {
-                        c.Enabled = false;
-                    }
-                }
+                cb16_1Srbija.Enabled = false;
+                cb16_1Drzava.Enabled = false;
             }
         }
 
         private void cb16_1Srbija_CheckedChanged(object sender, EventArgs e)
         {
-            if (cb16_1Srbija.Checked) 
+            if (cb16_1Srbija.Checked)
             {
                 cb16_1Drzava.Checked = false;
-                foreach (Control c in Controls)
-                {
-                    if (c.Name.Contains("_1") && !c.Name.Contains("Drzava"))
-                    {
-                        c.Enabled = true;
-                    }
-                }
+                cmb16_1Opstina.Enabled = true;
+                cmb16_1Naselje.Enabled = true;
+                txt16_1Naziv.Enabled = true;
+                txt16_1Ulica.Enabled = true;
+                txt16_1Broj.Enabled = true;
+                lb16_1Naziv.Enabled = true;
+                lb16_1Adresa.Enabled = true;
             }
             else
             {
-                foreach (Control c in Controls)
-                {
-                    if (c.Name.Contains("_1") && !c.Name.Contains("Drzava") && c.Name != "lb16_1" && !(c is CheckBox))
-                    {
-                        c.Enabled = false;
-                        if(c is TextBox)
-                            c.Text = string.Empty;
-                    }
-                }
+                cmb16_1Opstina.Enabled = false;
+                cmb16_1Naselje.Enabled = false;
+                txt16_1Naziv.Enabled = false;
+                txt16_1Naziv.Text = " ";
+                txt16_1Ulica.Enabled = false;
+                txt16_1Ulica.Text = " ";
+                txt16_1Broj.Enabled = false;
+                txt16_1Broj.Text = " ";
+                lb16_1Naziv.Enabled = false;
+                lb16_1Adresa.Enabled = false;
             }
         }
-
         private void txt16_1_TextChanged(object sender, EventArgs e)
         {
-            if (txt16_1Broj.Text != string.Empty && txt16_1Naziv.Text != string.Empty && txt16_1Ulica.Text != string.Empty)
-                lb16_2.Enabled = true;
-            else
+            if (txt16_1Broj.Text == string.Empty || txt16_1Naziv.Text == string.Empty || txt16_1Ulica.Text == string.Empty)
                 lb16_2.Enabled = false;
+            else
+                lb16_2.Enabled = true;
         }
 
         private void cmb16_1Opstina_EnabledChanged(object sender, EventArgs e)
         {
-            if(cmb16_1Opstina.Enabled)
+            if (cmb16_1Opstina.Enabled)
             {
-                cmb16_1Opstina.DisplayMember = "naziv" ;
+                cmb16_1Opstina.DisplayMember = "naziv";
                 cmb16_1Opstina.SelectedIndex = 0;
             }
             else
@@ -196,7 +159,7 @@ namespace Diplomski.frm.pitanja
 
         private void cb16_1Drzava_CheckedChanged(object sender, EventArgs e)
         {
-            if(cb16_1Drzava.Checked)
+            if (cb16_1Drzava.Checked)
             {
                 cb16_1Srbija.Checked = false;
                 cmb16_1Drzava.Enabled = true;
@@ -261,7 +224,6 @@ namespace Diplomski.frm.pitanja
             {
                 pitanje18.Remove(clb18.Items[e.Index].ToString());
             }
-
         }
 
         private void lb17_EnabledChanged(object sender, EventArgs e)
@@ -342,6 +304,22 @@ namespace Diplomski.frm.pitanja
                 this.Hide();
                 frm.ShowDialog();
                 this.Close();
+            }
+        }
+
+        private void Uncheck(CheckedListBox clb, ItemCheckEventArgs e)
+        {
+            for (int i = 0; i < clb.Items.Count; ++i)
+                if (i != e.Index) clb.SetItemChecked(i, false);
+        }
+        private void UncheckAll(CheckedListBox clb)
+        {
+            clb.ClearSelected();
+            for (int i = 0; i < clb.Items.Count; ++i)
+                clb.SetItemChecked(i, false);
+            if (clb.Name!= "clb16")
+            {
+                clb.Enabled = false;
             }
         }
     }
