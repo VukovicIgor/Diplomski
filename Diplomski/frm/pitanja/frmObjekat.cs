@@ -21,6 +21,7 @@ namespace Diplomski.frm.pitanja
         BazaDiplomskogTableAdapters.QueriesTableAdapter upis = new BazaDiplomskogTableAdapters.QueriesTableAdapter();
         int id;
         int id_popisivaca;
+        int id_objekta;
         public frmObjekat(int id, int id_popisivaca)
         {
             InitializeComponent();
@@ -96,8 +97,9 @@ namespace Diplomski.frm.pitanja
                     }
                     MessageBoxManager.Unregister();
                     BazaDiplomskog.tmp_OBJEKATRow red = bd.tmp_OBJEKAT.Newtmp_OBJEKATRow();
+                    id_objekta = tmp_id + 1;
                     red.id_osobe = id;
-                    red.id_objekta = tmp_id+1;
+                    red.id_objekta = id_objekta;
                     red.id_popisivac = id_popisivaca;
                     red.opstina = cmbOpstina.Text;
                     red.naselje = cmbNaselje.Text;
@@ -122,7 +124,7 @@ namespace Diplomski.frm.pitanja
                     }
                     else
                     {
-                        frmOZgradi forma = new frmOZgradi(id, id_popisivaca);
+                        frmOZgradi forma = new frmOZgradi(id_objekta, id_popisivaca);
                         this.Hide();
                         forma.ShowDialog();
                         this.Close();

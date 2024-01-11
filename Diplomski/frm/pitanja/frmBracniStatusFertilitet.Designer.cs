@@ -321,7 +321,7 @@
             this.MaximizeBox = false;
             this.Name = "frmBracniStatusFertilitet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Bracni status i fertilitet";
+            this.Text = "Bračni status i fertilitet";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

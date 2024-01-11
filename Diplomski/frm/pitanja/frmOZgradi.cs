@@ -12,7 +12,7 @@ namespace Diplomski.frm.pitanja
 {
     public partial class frmOZgradi : Form
     {
-        int id;
+        int id_objekta;
         int id_popisivaca;
         BazaDiplomskog bd = new BazaDiplomskog();
         BazaDiplomskogTableAdapters.tmp_O_ZGRADITableAdapter tmp_o_zgradiAdapter = new BazaDiplomskogTableAdapters.tmp_O_ZGRADITableAdapter();
@@ -20,7 +20,7 @@ namespace Diplomski.frm.pitanja
         BazaDiplomskogTableAdapters.QueriesTableAdapter brisanje = new BazaDiplomskogTableAdapters.QueriesTableAdapter();
         BazaDiplomskogTableAdapters.QueriesTableAdapter upis = new BazaDiplomskogTableAdapters.QueriesTableAdapter();
 
-        public frmOZgradi(int id, int id_popisivaca)
+        public frmOZgradi(int id_objekta, int id_popisivaca)
         {
             InitializeComponent();
             brisanje.brisanje_tmp_zgrada(id_popisivaca);
@@ -29,7 +29,7 @@ namespace Diplomski.frm.pitanja
             MessageBoxManager.Register();
             tmp_o_zgradiAdapter.Fill(bd.tmp_O_ZGRADI);
             tmp_objekatAdapter.Fill(bd.tmp_OBJEKAT);
-            this.id = id;
+            this.id_objekta = id_objekta;
             this.id_popisivaca = id_popisivaca;
         }
 
@@ -361,7 +361,7 @@ namespace Diplomski.frm.pitanja
             if (result == DialogResult.Yes)
             {
                 BazaDiplomskog.tmp_O_ZGRADIRow red = bd.tmp_O_ZGRADI.Newtmp_O_ZGRADIRow();
-                red.id_objekta = vrati_objekat(id);
+                red.id_objekta = id_objekta;
                 red.id_popisivac = id_popisivaca;
                 red.pitanje_1 = clb1.SelectedItem.ToString();
                 bd.tmp_O_ZGRADI.Addtmp_O_ZGRADIRow(red);
@@ -380,7 +380,7 @@ namespace Diplomski.frm.pitanja
             if (result == DialogResult.Yes)
             {
                 BazaDiplomskog.tmp_O_ZGRADIRow red = bd.tmp_O_ZGRADI.Newtmp_O_ZGRADIRow();
-                red.id_objekta = vrati_objekat(id);
+                red.id_objekta = id_objekta;
                 red.id_popisivac = id_popisivaca;
                 red.pitanje_1 = clb1.SelectedItem.ToString();
                 if (clb2.SelectedItem != null)
@@ -405,7 +405,7 @@ namespace Diplomski.frm.pitanja
             if (result == DialogResult.Yes)
             {
                 BazaDiplomskog.tmp_O_ZGRADIRow red = bd.tmp_O_ZGRADI.Newtmp_O_ZGRADIRow();
-                red.id_objekta = vrati_objekat(id);
+                red.id_objekta = id_objekta;
                 red.id_popisivac = id_popisivaca;
                 red.pitanje_1 = clb1.SelectedItem.ToString();
                 if(clb2.SelectedItem!=null)
@@ -423,22 +423,21 @@ namespace Diplomski.frm.pitanja
                 bd.tmp_O_ZGRADI.Addtmp_O_ZGRADIRow(red);
                 tmp_o_zgradiAdapter.Update(bd.tmp_O_ZGRADI);
                 MessageBoxManager.Unregister();
-                frmOStanu forma = new frmOStanu(vrati_objekat(id), id_popisivaca);
+                frmOStanu forma = new frmOStanu(id_objekta, id_popisivaca);
                 this.Hide();
                 forma.ShowDialog();
                 this.Close();
-                
             }
         }
-        private int vrati_objekat(int id_osobe)
-        {
-            var tmp = (from o in bd.tmp_OBJEKAT
-                       where o.id_osobe == id
-                       select o.id_objekta).First();
-            int id_objekta = tmp;
+        //private int vrati_objekat(int id_osobe)
+        //{
+        //    var tmp = (from o in bd.tmp_OBJEKAT
+        //               where o.id_osobe == id
+        //               select o.id_objekta).First();
+        //    int id_objekta = tmp;
 
-            return id_objekta;
-        }
+        //    return id_objekta;
+        //}
 
         private void upisTabela()
         {

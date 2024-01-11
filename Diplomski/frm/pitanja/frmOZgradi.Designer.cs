@@ -291,6 +291,7 @@
             // 
             // btnDalje
             // 
+            this.btnDalje.Enabled = false;
             this.btnDalje.Location = new System.Drawing.Point(777, 514);
             this.btnDalje.Name = "btnDalje";
             this.btnDalje.Size = new System.Drawing.Size(75, 23);
