@@ -275,12 +275,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TextFile1.txt" />
-    <Content Include="TextFile2.txt" />
-    <Content Include="TextFile3.txt" />
-    <Content Include="TextFile4.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="AxAcroPDFLib">
       <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
       <VersionMajor>1</VersionMajor>
