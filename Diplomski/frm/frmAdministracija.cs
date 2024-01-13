@@ -14,7 +14,11 @@ namespace Diplomski
 {
     public partial class frmAdministracija : Form
     {
+        BazaDiplomskog bd = new BazaDiplomskog();
+        BazaDiplomskogTableAdapters.POPISIVACTableAdapter popisivacAdapter = new BazaDiplomskogTableAdapters.POPISIVACTableAdapter();
+
         int id_popisivaca;
+        string korIme;
         public frmAdministracija(int id_popisivaca)
         {
             InitializeComponent();
@@ -22,15 +26,28 @@ namespace Diplomski
             MessageBoxManager.Yes = "Da";
             MessageBoxManager.No = "Ne";
             MessageBoxManager.Register();
+            popisivacAdapter.Fill(bd.POPISIVAC);
+
+            korIme =
+                (
+                    from p in bd.POPISIVAC
+                    where p.id_popisivaca==id_popisivaca
+                    select p.email
+                 ).FirstOrDefault();
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            MessageBoxManager.Unregister();
-            frmUnosPopisivaca frm = new frmUnosPopisivaca(id_popisivaca);
-            this.Hide();
-            frm.ShowDialog();
-            this.Close();
+            if (korIme == "supervizor")
+            {
+                MessageBoxManager.Unregister();
+                frmUnosPopisivaca frm = new frmUnosPopisivaca(id_popisivaca);
+                this.Hide();
+                frm.ShowDialog();
+                this.Close();
+            }
+            else
+                MessageBox.Show("Samo supervizor može dodati popisivača.");
         }
 
         private void svaPitanjaToolStripMenuItem_Click(object sender, EventArgs e)

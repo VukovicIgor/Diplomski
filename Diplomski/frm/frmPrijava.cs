@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,6 @@ namespace Diplomski
     {
         BazaDiplomskog bd = new BazaDiplomskog();
         BazaDiplomskogTableAdapters.POPISIVACTableAdapter popisivacAdapter = new BazaDiplomskogTableAdapters.POPISIVACTableAdapter();
-        string psw;
         public frmPrijava()
         {
             InitializeComponent();
@@ -63,11 +63,8 @@ namespace Diplomski
                     select p.sifra
                 ).FirstOrDefault();
 
-            if (sifra!=null)
-                psw = Dekodiranje(sifra);
-
             int id_popisivaca;
-            if (korIme==txtKorIme.Text && psw == txtSifra.Text)
+            if (korIme==txtKorIme.Text && Kodiranje(txtSifra.Text) == sifra)
             {
                 id_popisivaca =
                 (
@@ -86,10 +83,10 @@ namespace Diplomski
                 MessageBox.Show("Niste uneli dobro korisničko ime ili šifru!!!");
             }
         }
-        public string Dekodiranje(string sifra)
+        static string Kodiranje(string password)
         {
-            var base64EncodedBytes = System.Convert.FromBase64String(sifra);
-            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+            var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(password));
+            return string.Concat(hash.Select(b => b.ToString("x2")));
         }
     }
 }

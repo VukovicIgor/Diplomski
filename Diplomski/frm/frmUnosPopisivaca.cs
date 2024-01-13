@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using Diplomski.frm.pitanja;
+using System.Security.Cryptography;
 
 namespace Diplomski
 {
@@ -36,7 +37,7 @@ namespace Diplomski
             {
                 MessageBox.Show("Potrebno je uneti pravilno JMBG.");
             }
-            else if (txtLK.Text.Length < 0 || txtLK.Text.Length >9 || txtLK.Text.All(char.IsLetter))
+            else if (txtLK.Text.Length < 0 || txtLK.Text.Length > 9 || txtLK.Text.All(char.IsLetter))
             {
                 MessageBox.Show("Potrebno je uneti pravilno broj lične karte.");
             }
@@ -56,7 +57,7 @@ namespace Diplomski
             {
                 MessageBox.Show("Šifra mora imati specijalni karakter.");
             }
-            else if(txtPonSifra.Text != txtSifra.Text)
+            else if (txtPonSifra.Text != txtSifra.Text)
             {
                 MessageBox.Show("Šifre moraju biti iste.");
             }
@@ -64,8 +65,8 @@ namespace Diplomski
             {
                 var tmp =
                     from n in bd.OSOBA
-                     where n.maticni_broj == txtJMBG.Text
-                     select n.id_osobe;
+                    where n.maticni_broj == txtJMBG.Text
+                    select n.id_osobe;
 
                 var tmp1 =
                     from n in bd.POPISIVAC
@@ -74,7 +75,7 @@ namespace Diplomski
 
                 int postojiOsoba = tmp.Count();
                 int postojiPopisivac = tmp1.Count();
-                if ( postojiOsoba == 0)
+                if (postojiOsoba == 0)
                 {
                     MessageBox.Show("Prvo treba uraditi popis za zadatu osobu.");
                 }
@@ -84,7 +85,7 @@ namespace Diplomski
                 }
                 else
                 {
-                    var tmp_id = 
+                    var tmp_id =
                         (
                             from n in bd.POPISIVAC
                             select n.id_popisivaca
@@ -104,15 +105,10 @@ namespace Diplomski
                 }
             }
         }
-        public static string Kodiranje(string password)
+        static string Kodiranje(string password)
         {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(password);
-            return System.Convert.ToBase64String(plainTextBytes);
-        }
-        public string Dekodiranje(string password)
-        {
-            var base64EncodedBytes = System.Convert.FromBase64String(password);
-            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+            var hash = new SHA1Managed().ComputeHash(Encoding.UTF8.GetBytes(password));
+            return string.Concat(hash.Select(b => b.ToString("x2")));
         }
         private static bool Validiranje(string email)
         {
