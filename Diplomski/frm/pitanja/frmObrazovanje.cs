@@ -55,18 +55,24 @@ namespace Diplomski.frm.pitanja
             if ((clb15.SelectedIndex == 0 || clb15.SelectedIndex == 1) && clb16.SelectedIndex == 0)
             {
                 lb17.Enabled = true;
+                btnDalje.Enabled = true;
             }
-            else
+            else if (!clb16.GetItemChecked(e.Index))
             {
+                lb18.Enabled = true;
                 lb17.Enabled = false;
+                btnDalje.Enabled = true;
             }
-            if (!clb16.GetItemChecked(e.Index) && e.Index != 0)
+            else if (!clb16.GetItemChecked(e.Index) && e.Index != 0)
             {
                 lb16_1.Enabled = true;
+                lb17.Enabled = false;
             }
             else
             {
                 lb16_1.Enabled = false;
+                lb18.Enabled = false;
+                btnDalje.Enabled = false;
             }
         }
 
@@ -193,9 +199,15 @@ namespace Diplomski.frm.pitanja
         {
             Uncheck(clb16_2, e);
             if (!clb16_2.GetItemChecked(e.Index))
+            {
                 lb18.Enabled = true;
+                btnDalje.Enabled = true;
+            }
             else
+            {
                 lb18.Enabled = false;
+                btnDalje.Enabled = false;
+            }
         }
 
         private void lb18_EnabledChanged(object sender, EventArgs e)
@@ -235,14 +247,19 @@ namespace Diplomski.frm.pitanja
             if (lb17.Enabled)
                 clb17.Enabled = true;
             else
+            {
+                UncheckAll(clb17);
                 clb17.Enabled = false;
+            }
         }
 
         private void clb17_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             Uncheck(clb17, e);
             if (!clb17.GetItemChecked(e.Index))
+            {
                 lb18.Enabled = true;
+            }
             else
                 lb18.Enabled = false;
         }
