@@ -27,7 +27,7 @@ namespace Diplomski.frm.pitanja
             InitializeComponent();
             foreach (Control c in Controls)
             {
-                if (!c.Name.Contains("19"))
+                if (!c.Name.Contains("19") && !c.Name.Contains("menuStrip1"))
                     c.Enabled = false;
             }
             brisanje.brisanje_tmp_eko_aktivnost(id_popisivaca);

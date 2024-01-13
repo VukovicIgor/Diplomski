@@ -39,7 +39,7 @@ namespace Diplomski.frm.pitanja
         {
             UncheckAll(clb16);
             Uncheck(clb15, e);
-            if (clb15.SelectedIndex == 0 || clb15.SelectedIndex == 1)
+            if ((clb15.SelectedIndex == 0 || clb15.SelectedIndex == 1) && clb16.SelectedIndex == 0)
             {
                 lb17.Enabled = true;
             }
@@ -52,11 +52,15 @@ namespace Diplomski.frm.pitanja
         private void clb16_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             Uncheck(clb16, e);
-            if(clb16.SelectedIndex == 0)
+            if ((clb15.SelectedIndex == 0 || clb15.SelectedIndex == 1) && clb16.SelectedIndex == 0)
             {
                 lb17.Enabled = true;
             }
-            if (!clb16.GetItemChecked(e.Index))
+            else
+            {
+                lb17.Enabled = false;
+            }
+            if (!clb16.GetItemChecked(e.Index) && e.Index != 0)
             {
                 lb16_1.Enabled = true;
             }

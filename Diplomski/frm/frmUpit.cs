@@ -1755,7 +1755,7 @@ namespace Diplomski.frm
 
                                 tmp =
                                 (
-                        from os in bd.O_STANU
+                                    from os in bd.O_STANU
                                     join ob in bd.OBJEKAT on os.id_objekta equals ob.id_objekta
                                     join op in bd.OPSTINA on ob.opstina equals op.naziv
                                     join n in bd.NASELJE on new { a = op.sifra_opstine, b = ob.naselje } equals new { a = n.sifra_opstine, b = n.naziv }
