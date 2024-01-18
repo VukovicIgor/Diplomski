@@ -57,16 +57,16 @@ namespace Diplomski.frm.pitanja
                 lb17.Enabled = true;
                 btnDalje.Enabled = true;
             }
+            else if (!clb16.GetItemChecked(e.Index) && e.Index != 0)
+            {
+                lb16_1.Enabled = true;
+                lb17.Enabled = false;
+            }
             else if (!clb16.GetItemChecked(e.Index))
             {
                 lb18.Enabled = true;
                 lb17.Enabled = false;
                 btnDalje.Enabled = true;
-            }
-            else if (!clb16.GetItemChecked(e.Index) && e.Index != 0)
-            {
-                lb16_1.Enabled = true;
-                lb17.Enabled = false;
             }
             else
             {

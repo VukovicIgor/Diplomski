@@ -196,7 +196,7 @@
             this.MinimizeBox = false;
             this.Name = "frmObjekat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Objekat";
+            this.Text = "Podaci o objektu";
             this.Load += new System.EventHandler(this.frmAdresa_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

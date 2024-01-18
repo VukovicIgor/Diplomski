@@ -259,6 +259,7 @@
     <None Include="BazaDiplomskog.xss">
       <DependentUpon>BazaDiplomskog.xsd</DependentUpon>
     </None>
+    <None Include="ClassDiagram1.cd" />
     <None Include="IgorVukovicNRT3619_ZavrsniRad.docx" />
     <None Include="pitanja.pdf" />
     <None Include="Properties\Settings.settings">
@@ -283,6 +284,12 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

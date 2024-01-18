@@ -51,5 +51,10 @@ namespace Diplomski.frm
                 frm.ShowDialog();
             }
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

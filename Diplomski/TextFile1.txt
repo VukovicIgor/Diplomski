@@ -1,0 +1,245 @@
+﻿            foreach (string tip in tipNaselja)
+            {
+                lista = new List<string>();
+                lista.Add("Republika Srbija");
+                if (tip == "Ukupno")
+                    lista.Add("Ukupno");
+                else if (tip=="G")
+                    lista.Add("Gradska naselja");
+                else
+                    lista.Add("Ostala");
+                if(tip == "Ukupno")
+                {
+                    int tmp1 =
+                    (
+                        from bs in bd.BRACNI_STATUS_FERTILITET
+                        where bs.pitanje9.Contains("Oženjen/udata") && int.Parse(bs.pitanje11) == 0
+                        select bs.id_osobe
+                    ).Count();
+                    sum += tmp1;
+
+                    int tmp2 =
+                    (
+                        from bs in bd.BRACNI_STATUS_FERTILITET
+                        where bs.pitanje10 == "Da" && int.Parse(bs.pitanje11) == 0
+                        select bs.id_osobe
+                    ).Count();
+                    sum += tmp2;
+
+                    int tmp3 =
+                    (
+                        from bs in bd.BRACNI_STATUS_FERTILITET
+                        where bs.pitanje9.Contains("IGORCAR") && int.Parse(bs.pitanje11) > 0
+                        select bs.id_osobe
+                    ).Count();
+                    sum += tmp3;
+
+                    int tmp4 =
+                    (
+                        from bs in bd.BRACNI_STATUS_FERTILITET
+                        where bs.pitanje10 == "Da" && int.Parse(bs.pitanje11) > 0
+                        select bs.id_osobe
+                    ).Count();
+                    sum += tmp4;
+
+                    lista.Add(sum.ToString());
+                    lista.Add(tmp1.ToString());
+                    lista.Add(tmp2.ToString());
+                    lista.Add(tmp3.ToString());
+                    lista.Add(tmp4.ToString());
+
+                    dt.Rows.Add(lista.ToArray());
+                }
+                else
+                {
+                    int tmp1 =
+                    (
+                        from bs in bd.BRACNI_STATUS_FERTILITET
+                        join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        where bs.pitanje9.Contains("IGORCAR") && int.Parse(bs.pitanje11) == 0 && n.tip_naselja == tip
+                        select bs.id_osobe
+                    ).Count();
+                    sum += tmp1;
+
+                    int tmp2 =
+                    (
+                        from bs in bd.BRACNI_STATUS_FERTILITET
+                        join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        where bs.pitanje10 == "Da" && int.Parse(bs.pitanje11) == 0 && n.tip_naselja == tip
+                        select bs.id_osobe
+                    ).Count();
+                    sum += tmp2;
+
+                    int tmp3 =
+                    (
+                        from bs in bd.BRACNI_STATUS_FERTILITET
+                        join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        where bs.pitanje9.Contains("IGORCAR") && int.Parse(bs.pitanje11) > 0 && n.tip_naselja == tip
+                        select bs.id_osobe
+                    ).Count();
+                    sum += tmp3;
+
+                    int tmp4 =
+                    (
+                        from bs in bd.BRACNI_STATUS_FERTILITET
+                        join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                        join n in bd.NASELJE on ob.naselje equals n.naziv
+                        where bs.pitanje10 == "Da" && int.Parse(bs.pitanje11) > 0 && n.tip_naselja == tip
+                        select bs.id_osobe
+                    ).Count();
+                    sum += tmp4;
+
+                    lista.Add(sum.ToString());
+                    lista.Add(tmp1.ToString());
+                    lista.Add(tmp2.ToString());
+                    lista.Add(tmp3.ToString());
+                    lista.Add(tmp4.ToString());
+
+                    dt.Rows.Add(lista.ToArray());
+
+                }
+            }
+            foreach (DataRow red in bd.UPRAVNI_OKRUG.Rows)
+            {
+                foreach (DataColumn dc in bd.UPRAVNI_OKRUG.Columns)
+                {
+
+                    lista = new List<string>();
+
+
+                    if (dc.ColumnName == "naziv")
+                    {
+                        foreach (string tip in tipNaselja)
+                        {
+                            lista = new List<string>();
+                            lista.Add(red["naziv"].ToString());
+                            if (tip == "Ukupno")
+                                lista.Add("Ukupno");
+                            else if (tip == "G")
+                                lista.Add("Gradska naselja");
+                            else
+                                lista.Add("Ostala");
+                            if (tip == "Ukupno")
+                            {
+                                int tmp1 =
+                                (
+                                    from bs in bd.BRACNI_STATUS_FERTILITET
+                                    join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                                    join op in bd.OPSTINA on ob.opstina equals op.naziv
+                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                                    where bs.pitanje9.Contains("IGORCAR") && int.Parse(bs.pitanje11) == 0 && red["naziv"].ToString() == uo.naziv
+                                    select bs.id_osobe
+                                ).Count();
+                                sum += tmp1;
+
+                                int tmp2 =
+                                (
+                                    from bs in bd.BRACNI_STATUS_FERTILITET
+                                    join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                                    join op in bd.OPSTINA on ob.opstina equals op.naziv
+                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                                    where bs.pitanje10 == "Da" && int.Parse(bs.pitanje11) == 0 && red["naziv"].ToString() == uo.naziv
+                                    select bs.id_osobe
+                                ).Count();
+                                sum += tmp2;
+
+                                int tmp3 =
+                                (
+                                    from bs in bd.BRACNI_STATUS_FERTILITET
+                                    join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                                    join op in bd.OPSTINA on ob.opstina equals op.naziv
+                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                                    where bs.pitanje9.Contains("IGORCAR") && int.Parse(bs.pitanje11) > 0 && red["naziv"].ToString() == uo.naziv
+                                    select bs.id_osobe
+                                ).Count();
+                                sum += tmp3;
+
+                                int tmp4 =
+                                (
+                                    from bs in bd.BRACNI_STATUS_FERTILITET
+                                    join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                                    join op in bd.OPSTINA on ob.opstina equals op.naziv
+                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                                    where bs.pitanje10 == "Da" && int.Parse(bs.pitanje11) > 0 && red["naziv"].ToString() == uo.naziv
+                                    select bs.id_osobe
+                                ).Count();
+                                sum += tmp4;
+
+                                lista.Add(sum.ToString());
+                                lista.Add(tmp1.ToString());
+                                lista.Add(tmp2.ToString());
+                                lista.Add(tmp3.ToString());
+                                lista.Add(tmp4.ToString());
+
+                                dt.Rows.Add(lista.ToArray());
+                            }
+                            else
+                            {
+                                int tmp1 =
+                                (
+                                    from bs in bd.BRACNI_STATUS_FERTILITET
+                                    join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                                    join op in bd.OPSTINA on ob.opstina equals op.naziv
+                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                                    where bs.pitanje9.Contains("IGORCAR") && int.Parse(bs.pitanje11) == 0 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
+                                    select bs.id_osobe
+                                ).Count();
+                                sum += tmp1;
+
+                                int tmp2 =
+                                (
+                                    from bs in bd.BRACNI_STATUS_FERTILITET
+                                    join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                                    join op in bd.OPSTINA on ob.opstina equals op.naziv
+                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                                    where bs.pitanje10 == "Da" && int.Parse(bs.pitanje11) == 0 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
+                                    select bs.id_osobe
+                                ).Count();
+                                sum += tmp2;
+
+                                int tmp3 =
+                                (
+                                    from bs in bd.BRACNI_STATUS_FERTILITET
+                                    join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                                    join op in bd.OPSTINA on ob.opstina equals op.naziv
+                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                                    where bs.pitanje9.Contains("IGORCAR") && int.Parse(bs.pitanje11) > 0 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
+                                    select bs.id_osobe
+                                ).Count();
+                                sum += tmp3;
+
+                                int tmp4 =
+                                (
+                                    from bs in bd.BRACNI_STATUS_FERTILITET
+                                    join ob in bd.OBJEKAT on bs.id_osobe equals ob.id_osobe
+                                    join op in bd.OPSTINA on ob.opstina equals op.naziv
+                                    join n in bd.NASELJE on ob.naselje equals n.naziv
+                                    join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                                    where bs.pitanje10 == "Da" && int.Parse(bs.pitanje11) > 0 && n.tip_naselja == tip && red["naziv"].ToString() == uo.naziv
+                                    select bs.id_osobe
+                                ).Count();
+                                sum += tmp4;
+
+                                lista.Add(sum.ToString());
+                                lista.Add(tmp1.ToString());
+                                lista.Add(tmp2.ToString());
+                                lista.Add(tmp3.ToString());
+                                lista.Add(tmp4.ToString());
+
+                                dt.Rows.Add(lista.ToArray());
+
+                            }
+                        }
+                    }
+                }
+            }

@@ -16347,7 +16347,7 @@ opstina,
                 {
                     try
                     {
-                        return ((string)(this[this.tableBRACNI_STATUS_FERTILITET.pitanje10Column]));
+                        return ((string)(this[this.tableBRACNI_STATUS_FERTILITET.pitanje10Column]).ToString());
                     }
                     catch (global::System.InvalidCastException e)
                     {
@@ -17812,7 +17812,7 @@ opstina,
                 {
                     try
                     {
-                        return ((string)(this[this.tableMIGRACIJE.pitanje3_drzavaColumn]));
+                        return ((string)(this[this.tableMIGRACIJE.pitanje3_drzavaColumn]).ToString());
                     }
                     catch (global::System.InvalidCastException e)
                     {

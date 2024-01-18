@@ -429,7 +429,7 @@
             "Drvo, pelet i slični proizvodi od drveta",
             "Mazut i ulje za loženje",
             "Plinsko/gasno gorivo",
-            "Eletrična energija (struja)",
+            "Električna energija (struja)",
             "Druga vrsta energije (solarna, geotermalna, energija vetra i sl.)"});
             this.clb15.Location = new System.Drawing.Point(318, 520);
             this.clb15.Name = "clb15";

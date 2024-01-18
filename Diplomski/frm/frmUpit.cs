@@ -205,7 +205,7 @@ namespace Diplomski.frm
                         select DateTime.Today.Year - o.datum_rodjenja.Year
                         ).DefaultIfEmpty().Average();
                     lista.Add("Republika Srbija");
-                    lista.Add(tmp.ToString());
+                    lista.Add(Math.Round(tmp, 2).ToString());
 
                     tmp =
                         (
@@ -214,7 +214,7 @@ namespace Diplomski.frm
                         select DateTime.Today.Year - o.datum_rodjenja.Year
 
                         ).DefaultIfEmpty().Average();
-                    lista.Add(tmp.ToString());
+                    lista.Add(Math.Round(tmp, 2).ToString());
 
                     tmp =
                         (
@@ -222,9 +222,17 @@ namespace Diplomski.frm
                         where o.pol == "Žensko"
                         select DateTime.Today.Year - o.datum_rodjenja.Year
                         ).DefaultIfEmpty().Average();
-                    lista.Add(tmp.ToString());
+                    lista.Add(Math.Round(tmp, 2).ToString());
                     dt.Rows.Add(lista.ToArray());
                     prosek_godina(dt);
+                    dgv1.DataSource = dt;
+                    break;
+
+                case "stanovnistvo2_3":
+                    dt = new DataTable();
+                    dt.Columns.Add(" ", typeof(string));
+                    dt.Columns.Add("Broj osoba", typeof(string));
+                    mesto_rodjenja(dt);
                     dgv1.DataSource = dt;
                     break;
 
@@ -269,6 +277,23 @@ namespace Diplomski.frm
                     dgv1.DataSource = dt;
                     maternji_jezik(dt);
                     break;
+
+                case "stanovnistvo3_3":
+                    dt = new DataTable();
+                    dt.Columns.Add(" ", typeof(string));
+                    dt.Columns.Add("Ukupno", typeof(string));
+                    dt.Columns.Add("Bez škole", typeof(string));
+                    dt.Columns.Add("1-7 razreda osnovne škole", typeof(string));
+                    dt.Columns.Add("8 razreda osnovne škole", typeof(string));
+                    dt.Columns.Add("Srednja stručna škola", typeof(string));
+                    dt.Columns.Add("Gimnazija", typeof(string));
+                    dt.Columns.Add("Specijalizacija posle srednje škole", typeof(string));
+                    dt.Columns.Add("Viša škola (stari program)", typeof(string));
+                    dt.Columns.Add("Osnovne studije, fakultet i druge studije", typeof(string));
+                    dgv1.DataSource = dt;
+                    skola(dt);
+                    break;
+
                 case "porodice_1":
                     dt = new DataTable();
                     dt.Columns.Add("Teritorija", typeof(string));
@@ -280,6 +305,14 @@ namespace Diplomski.frm
                     dt.Columns.Add("Vanbračni par sa decom", typeof(string));
                     dgv1.DataSource = dt;
                     porodica_tip(dt);
+                    break;
+
+                case "porodice_2":
+                    dt = new DataTable();
+                    dt.Columns.Add(" ", typeof(string));
+                    dt.Columns.Add("Prosečan broj", typeof(string));
+                    dgv1.DataSource = dt;
+                    prosek_lica(dt);
                     break;
 
                 case "stanovi_1":
@@ -315,6 +348,15 @@ namespace Diplomski.frm
                     dgv1.DataSource = dt;
 
                     grejanje(dt);
+                    break;
+
+                case "stanovi_3":
+                    dt = new DataTable();
+                    dt.Columns.Add(" ", typeof(string));
+                    dt.Columns.Add("Prosečan broj lica", typeof(string));
+                    dgv1.DataSource = dt;
+
+                    prosek_lica(dt);
                     break;
             }
         }
@@ -651,7 +693,7 @@ namespace Diplomski.frm
                             where ns1.naziv == red["naziv"].ToString()
                             select DateTime.Today.Year - o.datum_rodjenja.Year
                         ).DefaultIfEmpty().Average();
-                        lista.Add(tmp.ToString());
+                        lista.Add(Math.Round(tmp, 2).ToString());
 
                         tmp =
                         (
@@ -664,7 +706,7 @@ namespace Diplomski.frm
                             where ns1.naziv == red["naziv"].ToString() && o.pol == "Muško"
                             select DateTime.Today.Year - o.datum_rodjenja.Year
                         ).DefaultIfEmpty().Average();
-                        lista.Add(tmp.ToString());
+                        lista.Add(Math.Round(tmp, 2).ToString());
 
                         tmp =
                         (
@@ -678,7 +720,7 @@ namespace Diplomski.frm
                             select DateTime.Today.Year - o.datum_rodjenja.Year
                         ).DefaultIfEmpty().Average();
 
-                        lista.Add(tmp.ToString());
+                        lista.Add(Math.Round(tmp, 2).ToString());
                         dt.Rows.Add(lista.ToArray());
                     }
                 }
@@ -698,8 +740,8 @@ namespace Diplomski.frm
             listaVera.Add("Judeistička");
             listaVera.Add("Istočnjačke veroispovesti");
             listaVera.Add("Ostale veroispovesti");
-            listaVera.Add("Agnostici");
-            listaVera.Add("Ateisti");
+            listaVera.Add("Agnostik");
+            listaVera.Add("Ateista");
             listaVera.Add("Nisu se izjasnili");
 
 
@@ -1165,8 +1207,6 @@ namespace Diplomski.frm
         {
             List<string> lista = new List<string>();
 
-            int sum = 0;
-
             List<string> tipNaselja = new List<string>();
             tipNaselja.Add("Ukupno");
             tipNaselja.Add("G");
@@ -1175,6 +1215,7 @@ namespace Diplomski.frm
 
             foreach (string tip in tipNaselja)
             {
+                int sum = 0;
                 lista = new List<string>();
                 lista.Add("Republika Srbija");
                 if (tip == "Ukupno")
@@ -1281,14 +1322,13 @@ namespace Diplomski.frm
             {
                 foreach (DataColumn dc in bd.UPRAVNI_OKRUG.Columns)
                 {
-
                     lista = new List<string>();
-
 
                     if (dc.ColumnName == "naziv")
                     {
                         foreach (string tip in tipNaselja)
                         {
+                            int sum = 0;
                             lista = new List<string>();
                             lista.Add(red["naziv"].ToString());
                             if (tip == "Ukupno")
@@ -2069,6 +2109,276 @@ namespace Diplomski.frm
                                 dt.Rows.Add(lista.ToArray());
                             }
                         }
+                    }
+                }
+            }
+        }
+        private void mesto_rodjenja(DataTable dt)
+        {
+            var ukupno =
+             (
+                 from o in bd.OSOBA
+                 join m in bd.MIGRACIJE on o.id_osobe equals m.id_osobe
+                 where m.pitanje3_drzava == DBNull.Value.ToString()
+                 select o.id_osobe
+             ).Count();
+
+            dt.Rows.Add("Republika Srbija", ukupno);
+
+            foreach (DataRow red in bd.UPRAVNI_OKRUG.Rows)
+            {
+                foreach (DataColumn dc in bd.UPRAVNI_OKRUG.Columns)
+                {
+                    List<string> tmp = new List<string>();
+                    if (dc.ColumnName == "naziv")
+                    {
+                        tmp.Add(red["naziv"].ToString());
+                        ukupno =
+                        (
+                            from o in bd.OSOBA
+                            join m in bd.MIGRACIJE on o.id_osobe equals m.id_osobe
+                            join op in bd.OPSTINA on m.pitanje3_mesto equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString()
+                            select o.id_osobe
+                        ).Count();
+                        tmp.Add(ukupno.ToString());
+
+                        dt.Rows.Add(tmp.ToArray());
+                    }
+                }
+            }
+        }
+        private void prosek_lica(DataTable dt)
+        {
+            var ukupno =
+             (
+                 from o in bd.O_STANU
+                 where o.pitanje23 != DBNull.Value.ToString()
+                 select int.Parse(o.pitanje23)
+             ).DefaultIfEmpty().Average();
+
+            dt.Rows.Add("Republika Srbija", Math.Round(ukupno, 2).ToString());
+
+            foreach (DataRow red in bd.NSTJ2.Rows)
+            {
+                foreach (DataColumn dc in bd.NSTJ2.Columns)
+                {
+                    
+                    if (dc.ColumnName == "naziv")
+                    {
+
+                        List<string> lista = new List<string>();
+                        lista.Add(red["naziv"].ToString());
+                        var tmp =
+                        (
+                            from o in bd.O_STANU
+                            join ob in bd.OBJEKAT on o.id_objekta equals ob.id_objekta
+                            join op in bd.OPSTINA on ob.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            join ns2 in bd.NSTJ2 on uo.sifra_nstj2 equals ns2.sifra_oblasti
+                            where ns2.naziv == red["naziv"].ToString() && o.pitanje23 != DBNull.Value.ToString()
+                            select int.Parse(o.pitanje23)
+                        ).DefaultIfEmpty().Average();
+                        lista.Add(Math.Round(tmp, 2).ToString());
+
+                        dt.Rows.Add(lista.ToArray());
+                    }
+                }
+            }
+        }
+        private void skola(DataTable dt)
+        {
+            List<string> listaJezika = new List<string>();
+            List<string> lista = new List<string>();
+            int tmp;
+            lista.Add("Republika Srbija");
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                where ob.pitanje_15 == "Bez škole"
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                where ob.pitanje_15.Contains("razreda osnovne škole")
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                where ob.pitanje_15.Contains("Osnovna škola")
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                where ob.pitanje_15.Contains("rednja stručna škola")
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                where ob.pitanje_15 == "Gimnazija"
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                where ob.pitanje_15.Contains("posle srednje škole")
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                where ob.pitanje_15.Contains("Viša škola")
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            tmp =
+            (
+                from ob in bd.OBRAZOVANJE
+                where ob.pitanje_15.Contains("studije") || ob.pitanje_15.Contains("Fakultet")
+                select ob.id_osobe
+            ).Count();
+            lista.Add(tmp.ToString());
+
+            dt.Rows.Add(lista.ToArray());
+
+            foreach (DataRow red in bd.UPRAVNI_OKRUG.Rows)
+            {
+                foreach (DataColumn dc in bd.UPRAVNI_OKRUG.Columns)
+                {
+
+                    lista = new List<string>();
+
+
+                    if (dc.ColumnName == "naziv")
+                    {
+                        lista.Add(red["naziv"].ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString()
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString() && ob.pitanje_15 == "Bez škole"
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString() && ob.pitanje_15.Contains("razreda osnovne škole")
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString() && ob.pitanje_15.Contains("Osnovna škola")
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString() && ob.pitanje_15.Contains("rednja stručna škola")
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString() && ob.pitanje_15 == "Gimnazija"
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString() && ob.pitanje_15.Contains("posle srednje škole")
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString() && ob.pitanje_15.Contains("Viša škola")
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        tmp =
+                        (
+                            from ob in bd.OBRAZOVANJE
+                            join o in bd.OBJEKAT on ob.id_osobe equals o.id_osobe
+                            join op in bd.OPSTINA on o.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
+                            where uo.naziv == red["naziv"].ToString() && (ob.pitanje_15.Contains("studije") || ob.pitanje_15.Contains("Fakultet"))
+                            select ob.id_osobe
+                        ).Count();
+                        lista.Add(tmp.ToString());
+
+                        dt.Rows.Add(lista.ToArray());
                     }
                 }
             }

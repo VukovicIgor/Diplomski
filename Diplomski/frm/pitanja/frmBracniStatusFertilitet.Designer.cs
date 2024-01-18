@@ -72,8 +72,8 @@
             this.clb9.FormattingEnabled = true;
             this.clb9.Items.AddRange(new object[] {
             "Neoženjen/neudata",
-            "Oženjen/udata (žive zajedno) → pitanje 11",
-            "Oženjen/udata (ne žive zajedno) → pitanje 11",
+            "Oženjen/udata (žive zajedno)",
+            "Oženjen/udata (ne žive zajedno)",
             "Udovac/udovica",
             "Razveden/razvedena"});
             this.clb9.Location = new System.Drawing.Point(35, 51);
@@ -95,16 +95,19 @@
             // lb10
             // 
             this.lb10.AutoSize = true;
+            this.lb10.Enabled = false;
             this.lb10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb10.Location = new System.Drawing.Point(12, 151);
             this.lb10.Name = "lb10";
             this.lb10.Size = new System.Drawing.Size(326, 32);
             this.lb10.TabIndex = 87;
             this.lb10.Text = "10. DA LI LICE ŽIVI SA PARTNEROM/PARTNERKOM\r\n      U VANBRAČNOJ ZAJEDNICI\r\n";
+            this.lb10.EnabledChanged += new System.EventHandler(this.lb10_EnabledChanged);
             // 
             // cb10Da
             // 
             this.cb10Da.AutoSize = true;
+            this.cb10Da.Enabled = false;
             this.cb10Da.Location = new System.Drawing.Point(89, 195);
             this.cb10Da.Name = "cb10Da";
             this.cb10Da.Size = new System.Drawing.Size(40, 17);
@@ -116,6 +119,7 @@
             // cb10Ne
             // 
             this.cb10Ne.AutoSize = true;
+            this.cb10Ne.Enabled = false;
             this.cb10Ne.Location = new System.Drawing.Point(186, 195);
             this.cb10Ne.Name = "cb10Ne";
             this.cb10Ne.Size = new System.Drawing.Size(40, 17);
@@ -137,15 +141,18 @@
             // lb11
             // 
             this.lb11.AutoSize = true;
+            this.lb11.Enabled = false;
             this.lb11.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb11.Location = new System.Drawing.Point(12, 239);
             this.lb11.Name = "lb11";
             this.lb11.Size = new System.Drawing.Size(189, 16);
             this.lb11.TabIndex = 90;
             this.lb11.Text = "11. BROJ ŽIVOROĐENE DECE";
+            this.lb11.EnabledChanged += new System.EventHandler(this.lb11_EnabledChanged);
             // 
             // dtp11_1prvo
             // 
+            this.dtp11_1prvo.Enabled = false;
             this.dtp11_1prvo.Location = new System.Drawing.Point(38, 317);
             this.dtp11_1prvo.Name = "dtp11_1prvo";
             this.dtp11_1prvo.Size = new System.Drawing.Size(61, 20);
@@ -154,6 +161,7 @@
             // 
             // dtp11_1drugo
             // 
+            this.dtp11_1drugo.Enabled = false;
             this.dtp11_1drugo.Location = new System.Drawing.Point(128, 317);
             this.dtp11_1drugo.Name = "dtp11_1drugo";
             this.dtp11_1drugo.Size = new System.Drawing.Size(66, 20);
@@ -162,6 +170,7 @@
             // 
             // dtp11_1trece
             // 
+            this.dtp11_1trece.Enabled = false;
             this.dtp11_1trece.Location = new System.Drawing.Point(221, 317);
             this.dtp11_1trece.Name = "dtp11_1trece";
             this.dtp11_1trece.Size = new System.Drawing.Size(66, 20);
@@ -201,6 +210,7 @@
             // lb11_1
             // 
             this.lb11_1.AutoSize = true;
+            this.lb11_1.Enabled = false;
             this.lb11_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb11_1.Location = new System.Drawing.Point(32, 292);
             this.lb11_1.Name = "lb11_1";
@@ -211,6 +221,7 @@
             // lb11_1vise
             // 
             this.lb11_1vise.AutoSize = true;
+            this.lb11_1vise.Enabled = false;
             this.lb11_1vise.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb11_1vise.Location = new System.Drawing.Point(35, 376);
             this.lb11_1vise.Name = "lb11_1vise";
@@ -220,6 +231,7 @@
             // 
             // dtp11_1vise
             // 
+            this.dtp11_1vise.Enabled = false;
             this.dtp11_1vise.Location = new System.Drawing.Point(232, 386);
             this.dtp11_1vise.Name = "dtp11_1vise";
             this.dtp11_1vise.Size = new System.Drawing.Size(61, 20);
@@ -238,6 +250,8 @@
             // 
             // cmb11
             // 
+            this.cmb11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb11.Enabled = false;
             this.cmb11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb11.FormattingEnabled = true;
             this.cmb11.ItemHeight = 13;
@@ -263,6 +277,7 @@
             this.cmb11.Size = new System.Drawing.Size(43, 21);
             this.cmb11.TabIndex = 105;
             this.cmb11.SelectedIndexChanged += new System.EventHandler(this.cmb11_SelectedIndexChanged);
+            this.cmb11.EnabledChanged += new System.EventHandler(this.cmb11_EnabledChanged);
             // 
             // menuStrip1
             // 

@@ -38,14 +38,6 @@ namespace Diplomski.frm.pitanja
                         dtp.Enabled = false;
                     }
                 }
-                if (c.Name.Contains("11"))
-                {
-                    if (c is ComboBox)
-                    {
-                        ComboBox cmb = (ComboBox)c;
-                        cmb.Enabled = false;
-                    }
-                }
             }
             MessageBoxManager.Yes = "Da";
             MessageBoxManager.No = "Ne";
@@ -61,42 +53,21 @@ namespace Diplomski.frm.pitanja
             for (int i = 0; i < clb9.Items.Count; ++i)
                 if (i != e.Index) clb9.SetItemChecked(i, false);
 
-            if (clb9.SelectedIndex == 1 || clb9.SelectedIndex == 2)
+            //if(clb9.SelectedIndex==0 || clb9.SelectedIndex == 3 || clb9.SelectedIndex == 4 )
+            if ((!clb9.GetItemChecked(e.Index) && e.Index==0) || (!clb9.GetItemChecked(e.Index) && e.Index == 3) || (!clb9.GetItemChecked(e.Index) && e.Index == 4))
             {
-                foreach (Control c in Controls)
-                {
-                    if (c is Label)
-                    {
-                        if (c.Name.Contains("10"))
-                        {
-                            Label lb = (Label)c;
-                            lb.Enabled = false;
-                        }
-                        if (c.Name.Contains("11"))
-                            c.Enabled = true;
-                    }
-                    if (c is CheckBox)
-                    {
-                        if (c.Name.Contains("10"))
-                        {
-                            CheckBox cb = (CheckBox)c;
-                            cb.Checked = false;
-                            cb.Enabled = false;
-                        }
-                        if (c.Name.Contains("11"))
-                            c.Enabled = true;
-                    }
-                }
+                lb10.Enabled = true;
+                lb11.Enabled = false;
+            }
+            else if ((!clb9.GetItemChecked(e.Index) && e.Index == 1) || (!clb9.GetItemChecked(e.Index) && e.Index == 2))
+            {
+                lb10.Enabled = false;
+                lb11.Enabled = true;
             }
             else
             {
-                foreach (Control c in Controls)
-                {
-                    if (!(c is DateTimePicker))
-                    {
-                        c.Enabled = true;
-                    }
-                }
+                lb10.Enabled = false;
+                lb11.Enabled = false;
             }
         }
         private void cmb11_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,38 +88,21 @@ namespace Diplomski.frm.pitanja
             else if (cmb11.SelectedIndex == 1)
             {
                 dtp11_1prvo.Enabled = true;
-                //dtp11_1prvo.CustomFormat = "yyyy";
-                //dtp11_1prvo.Format = DateTimePickerFormat.Custom;
                 dtp11_1drugo.Enabled = false;
-                //dtp11_1drugo.CustomFormat = " ";
-                //dtp11_1drugo.Format = DateTimePickerFormat.Custom;
                 dtp11_1vise.Enabled = false;
             }
             else if (cmb11.SelectedIndex == 2)
             {
                 dtp11_1prvo.Enabled = true;
-                //dtp11_1prvo.CustomFormat = "yyyy";
-                //dtp11_1prvo.Format = DateTimePickerFormat.Custom;
                 dtp11_1drugo.Enabled = true;
-                //dtp11_1drugo.CustomFormat = "yyyy";
-                //dtp11_1drugo.Format = DateTimePickerFormat.Custom;
                 dtp11_1trece.Enabled = false;
-                //dtp11_1trece.CustomFormat = "yyyy";
-                //dtp11_1trece.Format = DateTimePickerFormat.Custom;
-                //dtp11_1trece.Text = "";
                 dtp11_1vise.Enabled = false;
             }
             else if (cmb11.SelectedIndex == 3)
             {
                 dtp11_1prvo.Enabled = true;
-                //dtp11_1prvo.CustomFormat = "yyyy";
-                //dtp11_1prvo.Format = DateTimePickerFormat.Custom;
                 dtp11_1drugo.Enabled = true;
-                //dtp11_1drugo.CustomFormat = "yyyy";
-                //dtp11_1drugo.Format = DateTimePickerFormat.Custom;
                 dtp11_1trece.Enabled = true;
-                //dtp11_1trece.CustomFormat = "yyyy";
-                //dtp11_1trece.Format = DateTimePickerFormat.Custom;
                 dtp11_1vise.Enabled = false;
             }
             else if (cmb11.SelectedIndex > 3)
@@ -307,13 +261,27 @@ namespace Diplomski.frm.pitanja
         private void cb10Da_CheckedChanged(object sender, EventArgs e)
         {
             if (cb10Da.Checked)
+            {
                 cb10Ne.Checked = false;
+                lb11.Enabled = true;
+            }
+            else
+            {
+                lb11.Enabled = false;
+            }
         }
 
         private void cb10Ne_CheckedChanged(object sender, EventArgs e)
         {
             if (cb10Ne.Checked)
+            {
                 cb10Da.Checked = false;
+                lb11.Enabled = true;
+            }
+            else
+            {
+                lb11.Enabled = false;
+            }
         }
 
         private void svaPitanjaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -332,6 +300,54 @@ namespace Diplomski.frm.pitanja
                 this.Hide();
                 frm.ShowDialog();
                 this.Close();
+            }
+        }
+
+        private void lb10_EnabledChanged(object sender, EventArgs e)
+        {
+            if(lb10.Enabled)
+            {
+                cb10Da.Enabled = true;
+                cb10Ne.Enabled = true;
+            }
+            else
+            {
+                cb10Da.Checked = false;
+                cb10Ne.Checked = false;
+                cb10Da.Enabled = false;
+                cb10Ne.Enabled = false;
+            }
+        }
+
+        private void lb11_EnabledChanged(object sender, EventArgs e)
+        {
+            if(lb11.Enabled)
+            {
+                cmb11.Enabled = true;
+            }
+            else
+            {
+                cmb11.SelectedIndex = -1; ;
+                cmb11.Enabled = false;
+            }
+        }
+
+        private void cmb11_EnabledChanged(object sender, EventArgs e)
+        {
+            if (!cmb11.Enabled)
+            {
+                dtp11_1prvo.Enabled = false;
+                dtp11_1prvo.CustomFormat = " ";
+                dtp11_1prvo.Format = DateTimePickerFormat.Custom;
+                dtp11_1drugo.Enabled = false;
+                dtp11_1drugo.CustomFormat = " ";
+                dtp11_1drugo.Format = DateTimePickerFormat.Custom;
+                dtp11_1trece.Enabled = false;
+                dtp11_1trece.CustomFormat = " ";
+                dtp11_1trece.Format = DateTimePickerFormat.Custom;
+                dtp11_1vise.Enabled = false;
+                dtp11_1vise.CustomFormat = " ";
+                dtp11_1vise.Format = DateTimePickerFormat.Custom;
             }
         }
     }
