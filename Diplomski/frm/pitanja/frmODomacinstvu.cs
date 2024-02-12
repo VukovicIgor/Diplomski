@@ -300,7 +300,7 @@ namespace Diplomski.frm.pitanja
         }
         private void btnKraj_Click(object sender, EventArgs e)
         {
-            DialogResult pitanje = MessageBox.Show("Da li ste sigurni?", "Unos", MessageBoxButtons.YesNo);
+            DialogResult pitanje = MessageBox.Show("Da li ste sigurni?", "Kraj popisa", MessageBoxButtons.YesNo);
             if (pitanje == DialogResult.Yes)
             {
                 BazaDiplomskog.tmp_O_DOMACINSTVURow red = bd.tmp_O_DOMACINSTVU.Newtmp_O_DOMACINSTVURow();
