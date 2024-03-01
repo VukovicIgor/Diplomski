@@ -979,27 +979,37 @@ namespace Diplomski.frm
                         }
                         tmp =
                         (
-                            from ek in bd.ETNO_KULTURA
+                            from o in bd.OSOBA
+                            join ek in bd.ETNO_KULTURA on o.id_osobe equals ek.id_osobe
+                            join ob in bd.OBJEKAT on o.id_osobe equals ob.id_osobe
+                            join op in bd.OPSTINA on ob.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                             where !listaJezika.Contains(ek.pitanje_13)
-                            select ek.id_osobe
+                            select o.id_osobe
                         ).Count();
                         lista.Add(tmp.ToString());
 
                         tmp =
                         (
-                            from ek in bd.ETNO_KULTURA
-                            join o in bd.OSOBA on ek.id_osobe equals o.id_osobe
+                            from o in bd.OSOBA
+                            join ek in bd.ETNO_KULTURA on o.id_osobe equals ek.id_osobe
+                            join ob in bd.OBJEKAT on o.id_osobe equals ob.id_osobe
+                            join op in bd.OPSTINA on ob.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                             where o.pol == "Muško" && !listaJezika.Contains(ek.pitanje_13)
-                            select ek.id_osobe
+                            select o.id_osobe
                         ).Count();
                         lista.Add(tmp.ToString());
 
                         tmp =
                         (
-                            from ek in bd.ETNO_KULTURA
-                            join o in bd.OSOBA on ek.id_osobe equals o.id_osobe
+                            from o in bd.OSOBA
+                            join ek in bd.ETNO_KULTURA on o.id_osobe equals ek.id_osobe
+                            join ob in bd.OBJEKAT on o.id_osobe equals ob.id_osobe
+                            join op in bd.OPSTINA on ob.opstina equals op.naziv
+                            join uo in bd.UPRAVNI_OKRUG on op.sifra_okruga equals uo.sifra_okruga
                             where o.pol == "Žensko" && !listaJezika.Contains(ek.pitanje_13)
-                            select ek.id_osobe
+                            select o.id_osobe
                         ).Count();
                         lista.Add(tmp.ToString());
                         dt.Rows.Add(lista.ToArray());
